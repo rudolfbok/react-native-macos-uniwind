@@ -1,23 +1,27 @@
 <p align="center">
-  <img src="macos/rn-uw-macOS/Assets.xcassets/AppIcon.appiconset/AppIcon-512.png" alt="React Native macOS Uniwind app icon" width="180" style="border-radius: 28px;" />
+  <img src="assets/icon.svg" alt="React Native macOS · Uniwind app icon" width="180" />
 </p>
 
 <h1 align="center">React Native macOS · Uniwind</h1>
 
 <p align="center">
-  A polished, minimal desktop starter for building native macOS apps with React Native, TypeScript, and Uniwind.
+  A slim starter for native macOS apps with React Native, styled with Uniwind (Tailwind CSS 4).
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/status-starter%20template-0ea5e9?style=flat-square" alt="Project status: starter template" />
-  <a href="https://github.com/microsoft/react-native-macos"><img src="https://img.shields.io/badge/React%20Native-macOS-61dafb?style=flat-square&logo=react&logoColor=20232a" alt="React Native macOS" /></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
-  <a href="https://github.com/unjunland/uniwind"><img src="https://img.shields.io/badge/Uniwind-Tailwind%20for%20RN-38bdf8?style=flat-square" alt="Uniwind" /></a>
-  <a href="https://pnpm.io/"><img src="https://img.shields.io/badge/pnpm-10-f69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-macOS-111111?style=flat-square&logo=apple&logoColor=white" alt="macOS" />
+  <a href="https://microsoft.github.io/react-native-macos/"><img src="https://img.shields.io/badge/React%20Native%20macOS-0.83-61dafb?style=flat-square&logo=react&logoColor=20232a" alt="React Native macOS 0.83" /></a>
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19.2-61dafb?style=flat-square&logo=react&logoColor=20232a" alt="React 19.2" /></a>
+  <a href="https://uniwind.dev"><img src="https://img.shields.io/badge/Uniwind-Tailwind%204%20for%20RN-cc46c2?style=flat-square" alt="Uniwind" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-7-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 7" /></a>
+  <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm-cb3837?style=flat-square&logo=npm&logoColor=white" alt="npm" /></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/macOS-111111?style=flat-square&logo=apple&logoColor=white" alt="macOS" />
   <img src="https://img.shields.io/badge/New%20Architecture-enabled-8b5cf6?style=flat-square" alt="New Architecture enabled" />
 </p>
 
@@ -25,124 +29,148 @@
 
 ## ✨ What is this?
 
-This repository is a clean starting point for a **native macOS desktop app**. It combines the React Native macOS runtime with a small TypeScript codebase, utility-first styling through Uniwind, and Phosphor icons out of the box.
+A clean starting point for a **native macOS desktop app** written in React Native. The `macos/` folder is exactly what the official `react-native-macos` template generates (a SwiftUI app shell), and Uniwind adds Tailwind CSS 4 classes on top, so `className="bg-background text-foreground"` just works and follows the system's light or dark appearance.
 
-The sample screen is intentionally simple: it gives you a friendly visual check that the toolchain is working, then gets out of your way. Replace `src/App.tsx` and start shaping it into your own app. 🛠️
+The sample screen only proves that the toolchain works. Replace [`src/App.tsx`](src/App.tsx) and start building. 🛠️
 
-> ⚠️ This template targets **macOS only**. It is not configured for iOS or Android.
+> ⚠️ This template targets **macOS only**. There is no iOS or Android project.
 
 ## 🚀 Included
 
-- 🖥️ Native macOS target powered by `react-native-macos`
-- ⚛️ React Native 0.81 with the New Architecture enabled
-- 🎨 Uniwind + Tailwind CSS v4-style utility classes
-- 🧩 TypeScript with React Native type checking
-- 🌓 Light/dark appearance support via `useColorScheme`
-- 🎯 Phosphor React Native icons
-- 📦 pnpm-first scripts with a convenient development workflow
-- 🍎 A ready-to-use macOS app icon and Xcode project
+- 🖥️ React Native macOS `0.83` with the New Architecture and the official SwiftUI app shell
+- 🎨 Uniwind + Tailwind CSS 4 with semantic light/dark theme tokens
+- 🧩 TypeScript 7
+- 📦 npm, with the versions React Native macOS expects
+- 🍎 One SVG app icon, rendered into the Xcode asset catalog
+- 🚢 GitHub Actions CI: typecheck, macOS bundle and a Release build of the app
 
 ## 🧰 Tech stack
 
 | Layer | Choice |
 | --- | --- |
-| UI runtime | React Native `0.81` + React Native macOS `0.81` |
-| Language | TypeScript `5` |
-| Styling | Uniwind `1` + Tailwind CSS `4` |
-| Icons | Phosphor React Native |
-| Package manager | pnpm `10` |
-| Native tooling | Xcode + CocoaPods |
+| UI runtime | React Native macOS `0.83` + React Native `0.83` + React `19.2` |
+| Native shell | SwiftUI (`AppDelegate.swift`) from the official template |
+| Styling | Uniwind `1.13` + Tailwind CSS `4` |
+| Language | TypeScript `7` |
+| Package manager | npm |
+| Native tooling | Xcode + CocoaPods (via Bundler) |
 
 ## 📁 Project layout
 
 ```text
-rn-macos-uniwind/
+react-native-macos-uniwind/
 ├── src/
-│   ├── App.tsx             # Starter screen and first component to edit
-│   ├── globals.css         # Uniwind/Tailwind entry styles
-│   └── uniwind-types.d.ts  # Uniwind TypeScript declarations
+│   ├── App.tsx              # Starter screen, edit this first
+│   ├── global.css           # Tailwind + Uniwind + light/dark theme tokens
+│   ├── global.d.ts          # Lets TypeScript import .css files
+│   └── uniwind-types.d.ts   # Generated by Uniwind
 ├── macos/
-│   ├── rn-uw.xcodeproj/    # Native macOS project
-│   └── rn-uw-macOS/        # App delegate, entitlements, storyboard, assets
-├── app.json                # App metadata
-├── package.json            # Scripts and dependencies
-└── README.md
+│   ├── App-macOS/           # AppDelegate.swift, Info.plist, entitlements, app icon
+│   ├── App.xcodeproj/       # Xcode project (open App.xcworkspace)
+│   └── Podfile
+├── assets/icon.svg          # App icon source
+├── .github/workflows/       # CI
+├── app.json                 # App name (must match AppDelegate.swift)
+├── index.js                 # Registers the root component
+└── metro.config.js          # withUniwindConfig()
 ```
 
 ## ⚡ Quick start
 
 ### Prerequisites
 
-- macOS with Xcode installed
+- macOS with Xcode
 - Node.js `20.19.4` or newer
-- pnpm `10` or newer
-- Ruby and Bundler
+- Ruby with Bundler (installs the pinned CocoaPods version)
 
-### 1. Install JavaScript dependencies
+### 1. Install dependencies
 
 ```bash
-pnpm install
+npm install
+bundle install
+bundle exec pod install --project-directory=macos
 ```
 
-### 2. Install Ruby and CocoaPods dependencies
+### 2. Run the app
+
+`run-macos` doesn't start Metro for you, so use two terminals:
 
 ```bash
-ruby -S bundle install
-cd macos
-ruby -S bundle exec pod install
-cd ..
-```
-
-### 3. Start the app
-
-In one terminal, start Metro:
-
-```bash
-pnpm start
-```
-
-In another terminal, build and launch the macOS app:
-
-```bash
-pnpm macos
-```
-
-Or run both processes with the combined development script:
-
-```bash
-pnpm dev
+npm start        # terminal 1: Metro
+npm run macos    # terminal 2: build and launch the app
 ```
 
 ## 🧑‍💻 Development scripts
 
 | Command | Description |
 | --- | --- |
-| `pnpm start` | Start the Metro bundler |
-| `pnpm macos` | Build and run the macOS app |
-| `pnpm dev` | Start Metro and launch macOS when ready |
-| `pnpm lint` | Run ESLint |
-| `pnpm format` | Format the project with Prettier |
+| `npm start` | Start Metro |
+| `npm run macos` | Build and launch the Debug app |
+| `npm run macos -- --mode Release` | Build and launch a Release app with the bundled JS |
+| `npm run typecheck` | Run `tsc` |
 
 ## 🎨 Start building
 
-1. Open [`src/App.tsx`](src/App.tsx).
-2. Replace the sample content with your first screen.
-3. Add utility classes directly with `className`.
-4. Use `useColorScheme()` when a component needs light/dark variants.
-5. Add native macOS configuration in [`macos/`](macos/) only when your app needs it.
-
-Example:
+1. Edit [`src/App.tsx`](src/App.tsx).
+2. Style with `className`. Semantic tokens (`background`, `foreground`, `muted`, `primary`, …) are defined once in [`src/global.css`](src/global.css), with light and dark variants that follow the system appearance. Add new tokens there, in both variants, instead of hardcoding colors.
 
 ```tsx
-<View className="flex-1 items-center justify-center bg-white dark:bg-slate-950">
-  <Text className="text-3xl font-bold text-slate-900 dark:text-white">
-    Hello, macOS 👋
-  </Text>
+<View className="flex-1 items-center justify-center gap-4 bg-background">
+	<Text className="text-3xl font-bold text-foreground">Hello, macOS 👋</Text>
+	<Text className="text-muted-foreground">Same tokens in light and dark</Text>
 </View>
 ```
 
+The Uniwind `rem` polyfill is set to `14` in [`metro.config.js`](metro.config.js), so `text-base` matches the smaller default text size of macOS.
+
+## 🏷️ Make it yours
+
+| What | Where |
+| --- | --- |
+| Module name `App` | `app.json` (`name`) and `withModuleName:` in `macos/App-macOS/AppDelegate.swift`. They must match. |
+| Window title | `Window("App", …)` in `AppDelegate.swift` |
+| App name in the menu bar and Finder | `PRODUCT_NAME` of the `App-macOS` target in Xcode |
+| Bundle identifier `org.reactjs.native.App` | `PRODUCT_BUNDLE_IDENTIFIER` of the `App-macOS` target in Xcode |
+| Version | `CFBundleShortVersionString` in `macos/App-macOS/Info.plist` |
+
+**Icon:** edit [`assets/icon.svg`](assets/icon.svg), then render it into the asset catalog:
+
+```bash
+npx @tauri-apps/cli icon assets/icon.svg -p 16,32,64,128,256,512,1024 -o /tmp/app-icon
+dir=macos/App-macOS/Assets.xcassets/AppIcon.appiconset
+for s in 16 32 128 256 512; do
+	cp /tmp/app-icon/${s}x${s}.png $dir/AppIcon-$s.png
+	cp /tmp/app-icon/$((s * 2))x$((s * 2)).png $dir/AppIcon-$s@2x.png
+done
+```
+
+## ⬆️ Upgrading
+
+`react-native-macos` decides which React Native you can use. Its peer dependency names the exact `react-native` version:
+
+```bash
+npm view react-native-macos peerDependencies
+```
+
+Bump `react-native-macos`, `react-native` and the `@react-native/*` packages together. Set `react` to the version that React Native's own template uses, since the renderer requires an exact match. Then compare `macos/` with the upstream template in `node_modules/react-native-macos/local-cli/generator-macos/templates` and run `bundle exec pod install --project-directory=macos`.
+
+`metro` and `metro-cache` are pinned to the Metro line that React Native uses. Uniwind declares them as `*` peer dependencies, so without the pins npm installs the newest Metro next to the one the CLI runs, and bundling fails. Move them to the Metro minor that `npm ls metro` reports under `react-native`.
+
+## 🧩 Optional tooling
+
+Intentionally not included. Pick what you like:
+
+- **Lint + format:** [Biome](https://biomejs.dev) or [oxlint](https://oxc.rs/docs/guide/usage/linter) + [oxfmt](https://oxc.rs/docs/guide/usage/formatter).
+- **Tests:** Jest, set up as in the [official React Native template](https://github.com/react-native-community/template).
+
+CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs the typecheck, a production macOS bundle and an unsigned Release build of the app.
+
 ## 🩹 Troubleshooting
 
-If CocoaPods reports a transient installation error, run the install command again. Native dependency resolution can occasionally fail while fetching or compiling a pod.
+If the app shows a red screen about the development server, Metro isn't running. Start it with `npm start`.
 
-If Metro is already running on port `8081`, stop the existing process before using `pnpm dev`.
+If Metro is already running on port `8081`, stop the other process first.
+
+If bundling fails with `Unexpected module with full source map found`, two Metro versions are installed. `npm ls metro metro-cache` should show a single version. After fixing that, restart Metro with `npm start -- --reset-cache`.
+
+After adding a dependency with native code, run `bundle exec pod install --project-directory=macos` again. If CocoaPods fails while fetching a pod, run it once more.
