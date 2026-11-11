@@ -1,43 +1,23 @@
-import { FileTsIcon, IconProps, LaptopIcon, LightbulbIcon, PackageIcon, WindIcon } from 'phosphor-react-native';
-import { ComponentType } from 'react';
-import { Text, View, useColorScheme } from 'react-native';
-import './globals.css';
+import { useState } from 'react';
+import { Pressable, Text, View } from 'react-native';
+import './global.css';
 
-const FeaturePill = ({ Icon, name, color }: { Icon: ComponentType<IconProps>; name: string; color: string }) => {
+const App = () => {
+	const [count, setCount] = useState(0);
+
 	return (
-		<View className="flex-row items-center gap-2 rounded-3xl border border-[#909090] px-4 py-2 dark:border-[#2A2C32]">
-			<Icon color={color} />
-			<Text style={{ color }}>{name}</Text>
+		<View className="flex-1 items-center justify-center gap-6 bg-background p-6">
+			<Text className="text-3xl font-bold text-foreground">React Native macOS</Text>
+			<Text className="text-muted-foreground">Uniwind · TypeScript</Text>
+			<Pressable
+				accessibilityRole="button"
+				onPress={() => setCount((c) => c + 1)}
+				className="min-h-11 items-center justify-center rounded-ui bg-primary px-5 active:opacity-80"
+			>
+				<Text className="text-base font-semibold text-primary-foreground">Pressed {count}×</Text>
+			</Pressable>
 		</View>
 	);
 };
 
-export default function App() {
-	const currentTheme = useColorScheme();
-
-	const switchColor = (lightColor: string, darkColor: string): string => {
-		const color = currentTheme === 'light' ? lightColor : darkColor;
-		return color;
-	};
-
-	return (
-		<View className="flex-1 items-center justify-center bg-[#F2F2F7] dark:bg-[#0D1119]">
-			<View className="flex h-fit flex-col items-center gap-4 rounded-3xl bg-white p-8 dark:bg-[#161A21]">
-				<View className="flex flex-col items-center gap-2">
-					<Text className="text-5xl font-bold">React Native macOS</Text>
-					<Text>Starter template for building macOS apps with React Native, TypeScript and Uniwind.</Text>
-				</View>
-				<View className="flex-row gap-2">
-					<FeaturePill Icon={LaptopIcon} name="React Native" color="#2CA9D0" />
-					<FeaturePill Icon={WindIcon} name="Uniwind" color="#D53AA2" />
-					<FeaturePill Icon={FileTsIcon} name="TypeScript" color="#0079FF" />
-					<FeaturePill Icon={PackageIcon} name="PNPM" color="#EB9331" />
-				</View>
-				<View className="flex-row items-center gap-2">
-					<LightbulbIcon color={switchColor('black', 'white')} />
-					<Text>Edit src/App.tsx to start building your app</Text>
-				</View>
-			</View>
-		</View>
-	);
-}
+export default App;

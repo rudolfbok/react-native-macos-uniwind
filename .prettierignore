@@ -1,7 +1,0 @@
-# Ignore artifacts:
-.bundle/
-node_modules/
-macos/
-vendor/
-pnpm-lock.yaml
-uniwind-types.d.ts
