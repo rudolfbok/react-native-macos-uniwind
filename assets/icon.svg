@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c20"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow-react"><stop offset="0" stop-color="#61DAFB" stop-opacity="0.2"/><stop offset="1" stop-color="#61DAFB" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glow-uniwind"><stop offset="0" stop-color="#CC46C2" stop-opacity="0.22"/><stop offset="1" stop-color="#CC46C2" stop-opacity="0"/></radialGradient>
+  </defs>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#sheen)"/>
+  <rect x="101" y="101" width="822" height="822" rx="184" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+
+  <circle cx="392" cy="392" r="230" fill="url(#glow-react)"/>
+  <circle cx="636" cy="636" r="210" fill="url(#glow-uniwind)"/>
+
+  <g transform="translate(392 392) scale(13.6)">
+    <circle r="2.05" fill="#61DAFB"/>
+    <g fill="none" stroke="#61DAFB" stroke-width="1.25">
+      <ellipse rx="11" ry="4.2"/>
+      <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+      <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+    </g>
+  </g>
+
+  <path transform="translate(453.6 453.6) scale(1.9)" fill="none" stroke="#CC46C2" stroke-linejoin="round" stroke-width="9.5" d="M96 22v74c20.435 0 37-16.566 37-37s-16.565-37-37-37Zm0 74v74c-20.434 0-37-16.565-37-37s16.566-37 37-37Zm74 0H96c0 20.435 16.565 37 37 37s37-16.565 37-37Zm-74 0H22c0-20.434 16.566-37 37-37s37 16.566 37 37Z"/>
+</svg>
